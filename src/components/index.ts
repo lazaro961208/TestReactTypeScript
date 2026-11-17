@@ -1,2 +1,5 @@
+export { PostCard } from './PostCard'
+export { PostList } from './PostList'
 export { UserList } from './UserList'
+export { UserPosts } from './UserPosts'
 export { UserSearch } from './UserSearch'
