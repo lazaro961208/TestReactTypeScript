@@ -39,9 +39,6 @@ function App() {
 
       <div className="relative mx-auto max-w-[90rem] px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
         <header className="max-w-3xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-sky-400 sm:text-sm">
-            Etapa 5 · Experiencia de usuario
-          </p>
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
             Usuarios y publicaciones
           </h1>
