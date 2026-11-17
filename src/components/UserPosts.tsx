@@ -1,5 +1,6 @@
 import { usePostsByUser } from '../hooks'
 import type { User } from '../types'
+import { CreatePostForm } from './CreatePostForm'
 import { PostList } from './PostList'
 
 interface UserPostsProps {
@@ -31,7 +32,9 @@ export function UserPosts({ user }: UserPostsProps) {
         Publicaciones de {user.name}
       </h2>
 
-      <div className="mt-4" aria-live="polite">
+      <CreatePostForm userId={user.id} />
+
+      <div className="mt-8" aria-live="polite">
         {isPending && (
           <p className="rounded-xl bg-slate-900 px-6 py-10 text-center text-slate-300">
             Cargando publicaciones…

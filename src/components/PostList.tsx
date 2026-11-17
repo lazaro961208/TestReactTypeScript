@@ -18,7 +18,7 @@ export function PostList({ posts }: PostListProps) {
   return (
     <ul className="space-y-4" aria-label="Publicaciones del usuario seleccionado">
       {posts.map((post) => (
-        <li key={post.id}>
+        <li key={post.localId ?? `remote-${post.id}`}>
           <PostCard post={post} />
         </li>
       ))}

@@ -1,4 +1,4 @@
-import type { Post } from '../types'
+import type { CreatePostInput, Post } from '../types'
 
 const API_URL = 'https://jsonplaceholder.typicode.com'
 
@@ -13,4 +13,20 @@ export async function getPostsByUser(
   }
 
   return response.json() as Promise<Post[]>
+}
+
+export async function createPost(input: CreatePostInput): Promise<Post> {
+  const response = await fetch(`${API_URL}/posts`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(input),
+  })
+
+  if (!response.ok) {
+    throw new Error('No se pudo crear la publicación.')
+  }
+
+  return response.json() as Promise<Post>
 }

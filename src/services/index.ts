@@ -1,2 +1,2 @@
-export { getPostsByUser } from './posts'
+export { createPost, getPostsByUser } from './posts'
 export { getUsers } from './users'
