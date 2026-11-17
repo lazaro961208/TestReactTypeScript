@@ -9,14 +9,17 @@ interface PostListProps {
 export function PostList({ posts }: PostListProps) {
   if (posts.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed border-slate-700 bg-slate-900/60 px-6 py-10 text-center text-slate-300">
-        Este usuario todavía no tiene publicaciones.
-      </p>
+      <div className="rounded-2xl border border-dashed border-slate-700 bg-slate-950/40 px-6 py-12 text-center">
+        <p className="font-semibold text-slate-200">Todavía no hay publicaciones</p>
+        <p className="mt-2 text-sm leading-6 text-slate-500">
+          Usa el formulario anterior para crear la primera.
+        </p>
+      </div>
     )
   }
 
   return (
-    <ul className="space-y-4" aria-label="Publicaciones del usuario seleccionado">
+    <ul className="min-w-0 space-y-4" aria-label="Publicaciones del usuario seleccionado">
       {posts.map((post) => (
         <li key={post.localId ?? `remote-${post.id}`}>
           <PostCard post={post} />

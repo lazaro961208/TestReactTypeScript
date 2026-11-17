@@ -6,9 +6,9 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <article className="h-full rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-lg shadow-slate-950/20">
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-semibold leading-7 text-slate-100 first-letter:uppercase">
+    <article className="min-w-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50 p-4 transition hover:border-slate-700 hover:bg-slate-950/80 sm:p-5">
+      <div className="flex min-w-0 items-start justify-between gap-4">
+        <h3 className="min-w-0 break-words text-base font-bold leading-7 text-slate-100 first-letter:uppercase sm:text-lg">
           {post.title}
         </h3>
         {post.localId && (
@@ -17,7 +17,7 @@ export function PostCard({ post }: PostCardProps) {
           </span>
         )}
       </div>
-      <p className="mt-3 whitespace-pre-line leading-7 text-slate-300 first-letter:uppercase">
+      <p className="mt-3 whitespace-pre-line break-words text-sm leading-7 text-slate-400 first-letter:uppercase sm:text-base">
         {post.body}
       </p>
     </article>

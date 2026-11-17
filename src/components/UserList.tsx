@@ -13,49 +13,59 @@ export function UserList({
 }: UserListProps) {
   if (users.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed border-slate-700 bg-slate-900/60 px-6 py-10 text-center text-slate-300">
-        No se encontraron usuarios que coincidan con la búsqueda.
-      </p>
+      <div className="rounded-xl border border-dashed border-slate-700 bg-slate-950/40 px-5 py-9 text-center">
+        <p className="font-semibold text-slate-200">Sin coincidencias</p>
+        <p className="mt-2 text-sm leading-6 text-slate-500">
+          Prueba con otro nombre o elimina parte de la búsqueda.
+        </p>
+      </div>
     )
   }
 
   return (
-    <ul className="grid gap-4 sm:grid-cols-2" aria-label="Lista de usuarios">
+    <ul className="space-y-2" aria-label="Lista de usuarios">
       {users.map((user) => {
         const isSelected = selectedUserId === user.id
 
         return (
           <li
             key={user.id}
-            className={`rounded-xl border p-5 shadow-lg shadow-slate-950/20 transition ${
+            className={`min-w-0 rounded-xl border p-3.5 transition ${
               isSelected
-                ? 'border-sky-500 bg-sky-950/40 ring-1 ring-sky-500/40'
-                : 'border-slate-800 bg-slate-900'
+                ? 'border-sky-500/80 bg-sky-500/10 shadow-lg shadow-sky-950/20 ring-1 ring-sky-500/30'
+                : 'border-slate-800 bg-slate-950/40 hover:border-slate-700 hover:bg-slate-800/60'
             }`}
           >
             <button
               type="button"
               onClick={() => onSelectUser(user)}
               aria-pressed={isSelected}
-              className="w-full rounded-md text-left outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-900"
+              className="w-full min-w-0 rounded-lg text-left outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               <span className="flex items-start justify-between gap-3">
-                <span>
-                  <span className="block text-lg font-semibold text-slate-100">
+                <span className="min-w-0">
+                  <span className="block truncate font-semibold text-slate-100">
                     {user.name}
                   </span>
-                  <span className="mt-1 block text-sm text-sky-400">
+                  <span className="mt-1 block truncate text-sm text-slate-400">
                     @{user.username}
                   </span>
                 </span>
-                <span className="rounded-full bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-300">
-                  {isSelected ? 'Seleccionado' : 'Ver posts'}
+                <span
+                  className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                    isSelected
+                      ? 'bg-sky-400 text-slate-950'
+                      : 'bg-slate-800 text-slate-400'
+                  }`}
+                >
+                  {isSelected ? 'Activo' : 'Ver'}
                 </span>
               </span>
             </button>
             <a
               href={`mailto:${user.email}`}
-              className="mt-4 inline-block break-all text-sm text-slate-300 underline decoration-slate-600 underline-offset-4 transition hover:text-white focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              className="mt-3 block truncate rounded text-xs text-slate-500 transition hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              title={user.email}
             >
               {user.email}
             </a>

@@ -1,4 +1,6 @@
 export { CreatePostForm } from './CreatePostForm'
+export { ErrorState } from './ErrorState'
+export { LoadingState } from './LoadingState'
 export { PostCard } from './PostCard'
 export { PostList } from './PostList'
 export { UserList } from './UserList'
